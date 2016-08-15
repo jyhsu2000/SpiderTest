@@ -17,20 +17,4 @@
         <i class="home icon"></i>
         首頁
     </a>
-    @if(Auth::check())
-        @if(!Auth::user()->isConfirmed)
-            <a class="item" href="{!! route('auth.resend-confirm-mail') !!}">
-                <i class="mail icon red"></i> 信箱未驗證
-            </a>
-        @endif
-        <a class="item" href="{!! action('Auth\AuthController@logout') !!}">
-            <i class="spy icon"></i>
-            登出
-        </a>
-    @else
-        <a class="item" href="{!! action('Auth\AuthController@showLoginForm') !!}">
-            <i class="spy icon"></i>
-            登入/註冊
-        </a>
-    @endif
 </div>
