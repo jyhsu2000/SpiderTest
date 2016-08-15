@@ -25,6 +25,7 @@ class LaravelMenu
         Menu::make('right', function ($menu) {
             /* @var \Lavary\Menu\Builder $menu */
             $menu->add('SimpleLink', ['route' => 'test.simpleLink']);
+            $menu->add('Redirect', ['route' => 'test.redirect']);
         });
 
         return $next($request);

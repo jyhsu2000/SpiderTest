@@ -78,4 +78,24 @@ class HttpStatusCodeService
         598 => 'Network read timeout error',
         599 => 'Network connect timeout error',
     ];
+
+    public $redirectCodes = [
+        301,
+        302,
+        303,
+        307,
+        308,
+    ];
+
+    public function isRedirect($code)
+    {
+        if (!in_array($code, array_keys($this->httpStatusCode))) {
+            return false;
+        }
+        if (!in_array($code, $this->redirectCodes)) {
+            return false;
+        }
+
+        return true;
+    }
 }

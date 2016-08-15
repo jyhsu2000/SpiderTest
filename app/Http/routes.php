@@ -66,6 +66,11 @@
 
 //Test
 Route::get('SimpleLink/{code?}', 'TestController@getSimpleLink')->name('test.simpleLink')->where('code', '\d+');
+Route::get('Redirect/{code?}/{times?}/{targetCode?}', 'TestController@getRedirect')->name('test.redirect')
+    ->where('code', '\d+')->where('times', '\d+')->where('targetCode', '\d+');
+Route::get('Redirect/keep/{times?}', 'TestController@getRedirectKeep')->name('test.redirect.keep')
+    ->where('times', '\d+');
+Route::get('Redirect/loop', 'TestController@getRedirectLoop')->name('test.redirect.loop');
 
 //首頁
 Route::get('/', function () {

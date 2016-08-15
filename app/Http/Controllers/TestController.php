@@ -28,6 +28,41 @@ class TestController extends Controller
 
             return view('test.simple-link', compact('httpStatusCodes'));
         }
+
+        return $this->makeResponsePage($code);
+    }
+
+    public function getRedirect($code = null, $times = 0, $targetCode = 200)
+    {
+        if (!$code) {
+            $redirectCodes = $this->codeService->redirectCodes;
+
+            return view('test.redirect.index', compact('redirectCodes'));
+        }
+
+        if ($times > 0) {
+            if (!$this->codeService->isRedirect($code)) {
+                $code = 302;
+            }
+
+            return redirect(route('test.redirect', [$code, $times - 1, $targetCode]), $code);
+        }
+
+        return $this->makeResponsePage($targetCode);
+    }
+
+    public function getRedirectKeep($times = 0)
+    {
+        return redirect()->route('test.redirect.keep', $times + 1);
+    }
+
+    public function getRedirectLoop()
+    {
+        return redirect()->route('test.redirect.loop');
+    }
+
+    public function makeResponsePage($code)
+    {
         if (in_array($code, array_keys($this->codeService->httpStatusCode))) {
             $message = $this->codeService->httpStatusCode[$code];
         } else {
