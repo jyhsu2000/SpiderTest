@@ -38,6 +38,6 @@ class TestController extends Controller
             $message = 'Unknown Status Code';
         }
 
-        return response(view('test.simple-link-response', compact(['code', 'message'])), $code);
+        return response(view('test.response', compact(['code', 'message'])), $code);
     }
 }
