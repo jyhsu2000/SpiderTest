@@ -65,7 +65,7 @@
 //});
 
 //Test
-Route::get('SimpleLink/{code?}', 'TestController@getSimpleLink')->name('test.simpleLink');
+Route::get('SimpleLink/{code?}', 'TestController@getSimpleLink')->name('test.simpleLink')->where('code', '\d+');
 
 //首頁
 Route::get('/', function () {
