@@ -71,6 +71,8 @@ Route::get('Redirect/{code?}/{times?}/{targetCode?}', 'TestController@getRedirec
 Route::get('Redirect/keep/{times?}', 'TestController@getRedirectKeep')->name('test.redirect.keep')
     ->where('times', '\d+');
 Route::get('Redirect/loop', 'TestController@getRedirectLoop')->name('test.redirect.loop');
+Route::get('Redirect/maze/{step?}', 'TestController@getRedirectMaze')->name('test.redirect.maze')
+    ->where('step', '\d+');
 
 //首頁
 Route::get('/', function () {

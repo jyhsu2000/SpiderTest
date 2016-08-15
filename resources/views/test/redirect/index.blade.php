@@ -29,6 +29,11 @@
         </tbody>
     </table>
     <div class="ui segment">
+        <ul>
+            <li>{{ link_to_route('test.redirect.maze','Redirect Maze') }}</li>
+        </ul>
+    </div>
+    <div class="ui segment">
         <h1 class="ui header">Dangerous</h1>
         <ul>
             <li>{{ link_to_route('test.redirect.keep','Keep Redirect') }}</li>

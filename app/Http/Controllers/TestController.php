@@ -61,6 +61,16 @@ class TestController extends Controller
         return redirect()->route('test.redirect.loop');
     }
 
+    public function getRedirectMaze($step = 1)
+    {
+        if (!view()->exists('test.redirect.maze.' . $step)) {
+            return $this->makeResponsePage(200);
+        }
+        $redirectPath = route('test.redirect.maze', $step + 1);
+
+        return view('test.redirect.maze.' . $step, compact('step', 'redirectPath'));
+    }
+
     public function makeResponsePage($code)
     {
         if (in_array($code, array_keys($this->codeService->httpStatusCode))) {
