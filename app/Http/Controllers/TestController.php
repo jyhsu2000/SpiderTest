@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Services\HttpStatusCodeService;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use Illuminate\Http\Response;
 
 class TestController extends Controller
