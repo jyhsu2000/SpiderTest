@@ -36,6 +36,14 @@
                 display: block;
             }
         }
+
+        @media (min-height: 320px) {
+            .ui.footer.form-page { /* Increased specificity for SO snippet priority */
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+        }
     </style>
     @yield('css')
 </head>
@@ -48,7 +56,14 @@
     @yield('content')
 </div>
 {{-- Footer --}}
-@yield('footer')
+<div class="ui inverted vertical footer segment form-page">
+    <div class="ui right aligned container">
+        <a target="_blank" href="http://www.handicap-free.nat.gov.tw/Applications/Detail?category=1234567890">
+            <img border="0" hspace="0" title="通過A+無障礙網頁檢測" align="middle" src="{{ asset('image/aplus.jpg') }}"
+                 width="88" height="31">
+        </a>
+    </div>
+</div>
 
 {{-- Javascript --}}
 {!! Html::script('//code.jquery.com/jquery-3.1.0.min.js') !!}
